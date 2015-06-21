@@ -70,7 +70,7 @@
               <li><a href="#about">About</a></li>
               <li><a href="#service">Services</a></li> 
               <li><a href="#works">Works</a></li> 
-              <li><a href="#team">Team</a></li>          
+              <!--<li><a href="#team">Team</a></li>          -->
               <li><a href="#contact">Contacts</a></li>                           
             </ul>           
           </div><!--/.nav-collapse -->
@@ -352,213 +352,18 @@
     <!--=========== END WORKS SECTION ================-->
 
     <!--=========== BEGAIN TEAM SECTION ================-->
-    <section id="team">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12">
-            <!-- BEGAIN ABOUT HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Our Team</h2>            
-            </div>
-            <div class="team_area">
-              <!-- BEGAIN TEAM SLIDER -->
-              <div class="team_slider">  
-                <!-- BEGAIN SINGLE TEAM SLIDE#1 -->              
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5 class="">Jessica Sarah</h5>
-                    <span>Director</span>                        
-                    <p>Gardening has been his passion so long. Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet orem Ipsum dolor sit amet </p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#2 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-2.jpg" alt="img">
-                    </div>
-                    <h5>Adam William</h5>
-                    <span>Landscaping Specialist</span>                        
-                    <p>Gardening has been his passion so long. Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet orem Ipsum dolor sit amet </p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#3 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-3.jpg" alt="img">
-                    </div>
-                    <h5>Bob McArthur</h5>
-                    <span>Garden Designer</span>                        
-                    <p>Gardening has been his passion so long. Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet orem Ipsum dolor sit amet </p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#4 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-4.jpg" alt="img">
-                    </div>
-                    <h5>Jamie </h5>
-                    <span>Plan Specialis</span>                        
-                    <p>Gardening has been his passion so long. Lorem Ipsum dolor sit amet lorem Ipsum dolor sit amet orem Ipsum dolor sit amet </p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#5 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-5.jpg" alt="img">
-                    </div>
-                    <h5>Rita Sidens</h5>
-                    <span>Marketing</span>                        
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#6 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-1.jpg" alt="img">
-                    </div>
-                    <h5>Jamie Sidens</h5>
-                    <span>Web Designer</span>                        
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <!-- BEGAIN SINGLE TEAM SLIDE#7 -->
-                <div class="col-lg-3 col-md-3 col-sm-4">
-                  <div class="single_team wow fadeInUp">
-                    <div class="team_img">
-                      <img src="img/team-2.jpg" alt="img">
-                    </div>
-                    <h5>Jone Doe</h5>
-                    <span>Marketing Head</span>                        
-                    <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature</p>
-                    <div class="team_social">
-                      <a href="#"><i class="fa fa-facebook"></i></a>
-                      <a href="#"><i class="fa fa-twitter"></i></a>
-                      <a href="#"><i class="fa fa-google-plus"></i></a>
-                      <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                  </div>
-                </div>                              
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <?php
+        //require_once 'frontpage_team.php';
+    ?>
     <!--=========== END TEAM SECTION ================-->
 
 
    
 
     <!--=========== BEGAIN TESTIMONIAL SECTION ================-->
-    <section id="testimonial">
-      <div class="container"> 
-        <div class="row">
-          <div class=" col-lg-7 col-md-7 col-sm-6">
-            <!-- START BLOG HEADING -->
-            <div class="heading">
-              <h2 class="wow fadeInLeftBig">Satisfied Customers</h2>
-              <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
-            </div>
-          </div>
-          <div class=" col-lg-5 col-md-5 col-sm-6">
-            <div class="testimonial_customer">
-              <!-- BEGAIN TESTIMONIAL SLIDER -->
-              <ul class="testimonial_slider">
-                <!-- BEGAIN SINGLE TESTIMONIAL SLIDE#1 -->
-                <li>
-                  <div class="media testi_media">
-                    <a class="media-left testi_img" href="#">
-                      <img src="img/testimonial-pic1.jpg" alt="img">
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Alin Brown</h4>
-                      <span>CEO</span>                      
-                    </div>
-                  </div>
-                  <div class="testi_content">
-                    <p>Message of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable</p>
-                  </div>
-                </li>
-                <!-- BEGAIN SINGLE TESTIMONIAL SLIDE#2 -->
-                <li>
-                  <div class="media testi_media">
-                    <a class="media-left testi_img" href="#">
-                      <img src="img/testimonial-pic2.jpg" alt="img">
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Alicia Smith</h4>
-                      <span>BCA Manager</span>                      
-                    </div>
-                  </div>
-                  <div class="testi_content">
-                    <p>Message of Lorem Ipsum available, but the majority have suffered alteration in some form.</p>
-                  </div>
-                </li>
-                <!-- BEGAIN SINGLE TESTIMONIAL SLIDE#3 -->
-                <li>
-                  <div class="media testi_media">
-                    <a class="media-left testi_img" href="#">
-                      <img src="img/testimonial-pic3.jpg" alt="img">
-                    </a>
-                    <div class="media-body">
-                      <h4 class="media-heading">Jon Doe</h4>
-                      <span>Manager</span>                      
-                    </div>
-                  </div>
-                  <div class="testi_content">
-                    <p>Message of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>           
-        </div>
-      </div>
-    </section>
+    <?php
+        //require_once 'frontpage_testi.php';
+    ?>
     <!--=========== END TESTIMONIAL SECTION ================-->
 
 
@@ -692,7 +497,7 @@
               <div class="single_contact_feaured wow fadeInUp">
                 <i class="fa fa-phone"></i>
                 <h4>Call Us</h4>
-                <p>1-265-596-580</p>                
+                <p>(62-21) 7900744 / 7900935</p>                
               </div>
             </div>
             <!-- BEGAIN CALL US FEATURE -->
@@ -700,7 +505,7 @@
               <div class="single_contact_feaured wow fadeInUp">
                 <i class="fa fa-envelope-o"></i>
                 <h4>Email Address</h4>
-                <p>idea@gmail.com</p>
+                <p>office@idelandciptahijau.co.id</p>
               </div>
             </div>
             <!-- BEGAIN CALL US FEATURE -->

@@ -12,7 +12,8 @@
     <!-- Elastic grid css file -->
     <link rel="stylesheet" href="<?php echo $base_url;?>css/elastic_grid.css?v=<?php echo $version;?>"> 
     <!-- Circle counter cdn css file -->
-    <link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'>    
+    <!--<link rel='stylesheet prefetch' href='https://cdn.rawgit.com/pguso/jquery-plugin-circliful/master/css/jquery.circliful.css'> -->
+    <link rel='stylesheet prefetch' href="<?php echo $base_url;?>css/jquery.circliful.css?v=<?php echo $version;?>">
     <!-- Default Theme css file -->
     <link id="orginal" href="<?php echo $base_url;?>css/themes/default-theme.css?v=<?php echo $version;?>" rel="stylesheet">
     <!-- Main structure css file -->
