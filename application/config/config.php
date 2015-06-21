@@ -17,7 +17,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = '';
+$config['rel_http']	= "http://".$_SERVER['HTTP_HOST']."/ciptahijau/";
+$config['base_app']	= $config['rel_http']."application/";
+$config['base_url']     = $config['rel_http'];
 
 /*
 |--------------------------------------------------------------------------
