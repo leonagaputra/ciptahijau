@@ -362,7 +362,7 @@
 
     <!--=========== BEGAIN TESTIMONIAL SECTION ================-->
     <?php
-        //require_once 'frontpage_testi.php';
+        require_once 'frontpage_testi.php';
     ?>
     <!--=========== END TESTIMONIAL SECTION ================-->
 
