@@ -7,7 +7,12 @@
 
     <!-- Custom Fonts -->
     <link href="<?php echo $base_url;?>font-awesome/css/font-awesome.min.css?v=<?php echo $version;?>" rel="stylesheet" type="text/css">
-
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.7/css/jquery.dataTables.css">
+    <link href="<?php echo $base_url;?>css/pages/login-soft.css?v=<?php echo $version;?>" rel="stylesheet" type="text/css"/>
+    
+    <!--<link href="<?php //echo $base_url;?>css/jquery-ui.min.css?v=<?php //echo $version;?>" rel="stylesheet">-->
+    
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

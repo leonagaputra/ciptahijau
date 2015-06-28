@@ -70,6 +70,7 @@
               <li><a href="#about">About</a></li>
               <li><a href="#service">Services</a></li> 
               <li><a href="#works">Works</a></li> 
+              <li><a href="#testimonial">Testimonial</a></li> 
               <!--<li><a href="#team">Team</a></li>          -->
               <li><a href="#contact">Contacts</a></li>                           
             </ul>           

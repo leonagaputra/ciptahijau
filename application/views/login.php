@@ -25,7 +25,7 @@
 	<!-- BEGIN LOGIN -->
 	<div class="content">
 		<!-- BEGIN LOGIN FORM -->
-		<form class="form-vertical login-form" action="" method="post">
+		<form class="form-vertical login-form" action="<?php echo $base_url;?>index.php/backend/do_login" method="post">
 			<h3 class="form-title">Login to your account</h3>
 			<div class="alert alert-error hide">
 				<button class="close" data-dismiss="alert"></button>
@@ -51,9 +51,9 @@
 				</div>
 			</div>
 			<div class="form-actions">
-				<label class="checkbox">
+				<!--<label class="checkbox">
 				<input type="checkbox" name="remember" value="1"/> Remember me
-				</label>
+				</label>-->
 				<button type="submit" class="btn blue pull-right">
 				Login <i class="m-icon-swapright m-icon-white"></i>
 				</button>            

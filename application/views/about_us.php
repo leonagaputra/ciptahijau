@@ -31,8 +31,8 @@
                                     <label>Text Content</label>
                                     <textarea name="desc" class="summernote"class="form-control" rows="3"><?php echo $datas->VDESC;?></textarea>
                                 </div>
-                                <button type="button" class="btn btn-default">Submit Button</button>
-                                <button type="reset" class="btn btn-default">Reset Button</button>
+                                <button type="button" class="btn btn-default">Submit</button>
+                                <button type="reset" class="btn btn-default">Reset</button>
                             </form>
                         </div>
                     </div>
