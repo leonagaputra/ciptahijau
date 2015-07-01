@@ -358,8 +358,8 @@ jQuery(function($){
 	  var zoom= $('#map_canvas').gmap('option', 'zoom');
       
       $('#map_canvas').gmap().bind('init', function(ev, map) {
-        $('#map_canvas').gmap('addMarker', {'position': '57.7973433,12.0502107', 'bounds': true});
-        $('#map_canvas').gmap('option', 'zoom', 13);
+        $('#map_canvas').gmap('addMarker', {'position': '-6.279148,106.830036', 'bounds': true});
+        $('#map_canvas').gmap('option', 'zoom', 16);
       });
 
 
