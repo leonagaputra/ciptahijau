@@ -11,7 +11,7 @@ class Main extends My_Controller {
     
     public function __construct() {
         parent::__construct();
-        $this->load->model('page_model', 'pm');        
+        $this->load->model('pages_model', 'pm');        
     }
     
     //put your code here
