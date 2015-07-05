@@ -32,6 +32,14 @@ class My_Controller extends CI_Controller {
     function security_decode($str) {
         return html_entity_decode($str, ENT_QUOTES);
     }
+    
+    function get_input($str, $is_secure = TRUE){
+        if($is_secure)
+            return $this->security($this->input->post($str));
+        else
+            return $this->input->post($str);
+        //return $this->input->post($str);
+    }
 
     function testing() {
         $array = array("a", "b");

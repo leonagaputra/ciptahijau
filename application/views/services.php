@@ -20,19 +20,19 @@
                     <div class="row">
                         <div class="col-lg-8">
 
-                            <form role="form">                           
+                            <form role="form" id="hdrservices">                           
                                 <input name="id" type="hidden" value="<?php echo $datas->HDRPAGES_ID;?>">
                                 <div class="form-group">
                                     <label>Title</label>
-                                    <input name="title" class="form-control" placeholder="Input Title" value="<?php echo $datas->VTITLE;?>">
+                                    <input name="title" class="form-control" maxlength="<?php echo $title_maxlength;?>" placeholder="Input Title" value="<?php echo $datas->VTITLE;?>">
                                 </div>                          
 
                                 <div class="form-group">
                                     <label>Text Content</label>
-                                    <textarea name="desc" class="summernote"class="form-control" rows="3"><?php echo $datas->VDESC;?></textarea>
+                                    <textarea name="desc" id="services_desc" class="summernote"class="form-control" rows="3"><?php echo $datas->VDESC;?></textarea>
                                 </div>
-                                <button type="button" class="btn btn-default">Submit Button</button>
-                                <button type="reset" class="btn btn-default">Reset Button</button>
+                                <button type="button" class="btn btn-default" onclick="services.submit_header(this)">Submit Button</button>
+                                <button type="reset" class="btn btn-default" onclick="services.reset_header(this)">Reset Button</button>
                             </form>
                         </div>
                     </div>

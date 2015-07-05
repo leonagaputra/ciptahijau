@@ -25,6 +25,9 @@
                                 echo '<span>'.$detail->VPOSITION.($detail->VCOMPANY? ', '.$detail->VCOMPANY:'' ).'</span>';
                             echo '</div>';
                         echo '</div>';
+                        echo '<div class="testi_content">';
+                        echo $detail->VDESC;
+                        echo '</div>';
                     echo "</li>";
                 }
                 ?>

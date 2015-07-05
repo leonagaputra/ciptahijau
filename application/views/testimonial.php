@@ -20,19 +20,19 @@
     <div class="row">
         <div class="col-lg-8">
 
-            <form role="form">                           
+            <form role="form" id="hdr">                           
                 <input name="id" type="hidden" value="<?php echo $datas->HDRPAGES_ID; ?>">
                 <div class="form-group">
                     <label>Title</label>
-                    <input name="title" class="form-control" placeholder="Input Title" value="<?php echo $datas->VTITLE; ?>">
+                    <input name="title" class="form-control" maxlength="<?php echo $title_maxlength;?>" placeholder="Input Title" value="<?php echo $datas->VTITLE; ?>">
                 </div>                          
 
                 <div class="form-group">
                     <label>Text Content</label>
-                    <textarea name="desc" class="summernote"class="form-control" rows="3"><?php echo $datas->VDESC; ?></textarea>
+                    <textarea name="desc" id="hdr_desc" class="summernote"class="form-control" rows="3"><?php echo $datas->VDESC; ?></textarea>
                 </div>
-                <button type="button" class="btn btn-default">Submit</button>
-                <button type="reset" class="btn btn-default">Reset</button>
+                <button type="button" class="btn btn-default" onclick="submit_header(this)">Submit</button>
+                <button type="reset" class="btn btn-default" onclick="reset_header(this)">Reset</button>
             </form>
         </div>
     </div>
@@ -41,15 +41,19 @@
         <div class="col-lg-8">
 
             <div class="form-group" >
-                <label>Testimonial</label>
-                <div id="testi_div">
-                    <table id="detail_testimonial" class="display" cellspacing="0" width="100%">
+                <label id="testimonial">Testimonial</label>
+                <br/>
+                <button type="button" class="btn btn-default" onclick="testi.add_detail()">Add</button>
+                <br/><br/>
+                <div id="testi_div" class="table-responsive">
+                    <table id="detail_testimonial" class="table table-hover" >
                         <thead>
                             <tr>
                                 <th>Name</th>
                                 <th>Position</th>
                                 <th>Company</th>
-                                <th>Testimonial</th>                            
+                                <th>Testimonial</th>          
+                                <th></th>
                             </tr>
                         </thead>
 
@@ -59,81 +63,22 @@
                                 <th>Position</th>
                                 <th>Company</th>
                                 <th>Testimonial</th>
+                                <th></th>
                             </tr>
                         </tfoot>
-
-                        <tr onclick="testi.edit_detail(this, 1)">
-                            <td>Baba</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger345 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger89 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger99 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger9 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger8 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger7 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger6 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger5 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger4 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger3 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
-                        <tr>
-                            <td>Tiger2 Nixon</td>
-                            <td>CEO</td>
-                            <td>BCA</td>
-                            <td>Ok banget</td>                        
-                        </tr>
+                        
+                        <?php
+                        foreach($datas->DETAILS as $detail){
+                            echo "<tr>";
+                                echo "<td>".$detail->VNAME."</td>";
+                                echo "<td>".$detail->VPOSITION."</td>";
+                                echo "<td>".$detail->VCOMPANY."</td>";
+                                echo "<td>".$detail->VDESC."</td>";
+                                echo "<td><button type='button' class='btn btn-default' onclick='testi.edit_detail(this, ".$detail->HDRPAGES_ID." ,".$detail->DTLPAGES_ID.")'>Edit</button></td>";
+                            echo "</tr>";
+                        }
+                        ?>
+                       
                     </table>
                 </div>
             </div>

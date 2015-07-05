@@ -31,6 +31,13 @@ class Main extends My_Controller {
         if($datas = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '1'), TRUE)){
             $datas->VDESC = $this->security_decode($datas->VDESC);                      
             $datas->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '1'));
+            
+            foreach($datas->DETAILS as $details) {
+//                foreach ($details as $dtl){
+//                    $dtl = $this->security_decode($dtl);
+//                }
+                $details->VDESC = $this->security_decode($details->VDESC);
+            }
                 //print_r($this->data['datas']->DETAILS);exit;                       
         }   
         return $datas;

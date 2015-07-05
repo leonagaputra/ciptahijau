@@ -12,14 +12,22 @@
 <script src="<?php echo $base_url; ?>js/dataTables.tableTools.min.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/jquery.validate.min.js?v=<?php echo $version;?>" type="text/javascript"></script>
 <!--<script src="<?php //echo $base_url; ?>js/jquery-ui.min.js?v=<?php //echo $version; ?>"></script> -->
+<script src="<?php echo $base_url;?>js/iosOverlay.js?v=<?php echo $version;?>"></script>    
+<script src="<?php echo $base_url;?>js/spin.min.js?v=<?php echo $version;?>"></script>    
+
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>-->
+
+<!-- Latest compiled and minified Locales -->
+<!--<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-zh-CN.min.js"></script>-->
 
 <script type="text/javascript">
     main.base_url = "<?php echo $base_url; ?>";
     main.base_app = "<?php echo $base_app; ?>";
     $(document).ready(function () {
         $('.summernote').summernote();
+        //$('#services_desc').summernote();
         
-        $('#detail_testimonial').dataTable();
+        //$('#detail_testimonial').dataTable();
 
 //        $('#detail_testimonial').dataTable({
 //            "processing": true,

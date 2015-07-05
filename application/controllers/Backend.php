@@ -12,10 +12,11 @@ class Backend extends My_Controller {
     
     public function __construct() {
         parent::__construct();
-        $this->load->model('page_model', 'pm');
+        $this->load->model('pages_model', 'pm');
         $this->load->model('user_model', 'um');
         $this->load->helper('url');
         $this->load->library('session');
+        $this->data['title_maxlength'] = 100;
     }
     
     public function index(){
@@ -56,6 +57,9 @@ class Backend extends My_Controller {
             $this->data['datas']->VDESC = $this->security_decode($this->data['datas']->VDESC);            
             $this->data['page'] = 'about_us.php';
             $this->data['datas']->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '1'));
+            foreach($this->data['datas']->DETAILS as $details){
+                $details->VDESC = $this->security_decode($details->VDESC);
+            }
                 //print_r($this->data['datas']->DETAILS);exit;     
       
             $this->load->view('adminpage', $this->data);
@@ -82,7 +86,10 @@ class Backend extends My_Controller {
         if($this->data['datas'] = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '3'), TRUE)){
             $this->data['datas']->VDESC = $this->security_decode($this->data['datas']->VDESC);            
             $this->data['page'] = 'testimonial.php';
-            $this->data['datas']->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '3'));
+            $this->data['datas']->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '3'),FALSE, FALSE, NULL, NULL, "DTLPAGES_ID", TRUE);
+            foreach($this->data['datas']->DETAILS as $details){
+                $details->VDESC = $this->security_decode($details->VDESC);
+            }
                 //print_r($this->data['datas']->DETAILS);exit;     
       
             $this->load->view('adminpage', $this->data);
@@ -125,6 +132,119 @@ class Backend extends My_Controller {
     {
         $this->session->sess_destroy();
         header('location:'.$this->data['base_url'] . 'index.php/backend/login');
+    }
+    
+    function reset_header(){
+        $this->_cek_user_login();
+        $id = $this->get_input('id');
+        
+        if($msg = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> $id), TRUE)){
+            $msg->VDESC = $this->security_decode($msg->VDESC);                                    
+        }
+        
+        $this->set_json($msg);
+    }
+    
+    function update_header(){
+        $this->_cek_user_login();
+        
+        $id = $this->get_input('id');
+        $title = $this->get_input('title');
+        $desc = $this->get_input('desc');
+        
+        $data = array(
+            'VTITLE' => $title,
+            'VDESC' => $desc
+        );
+        
+        
+        
+        $id_n = $this->pm->update($id, $data);
+        if($id_n == $id) {
+            $msg = array(
+                'msg' => "success"
+            );
+        } else {
+            $msg = array(
+                'msg' => "error"
+            );
+        }
+        $this->set_json($msg);
+    }
+    
+    function update_detail(){
+        $this->_cek_user_login();
+        
+        $id = $this->get_input('hdr_id');
+        $dtl_id = $this->get_input('dtl_id');
+        $title = $this->get_input('title');
+        $desc = $this->get_input('desc');
+        $dtl_name = $this->get_input('dtl_name');
+        $dtl_position = $this->get_input('dtl_position');
+        $dtl_company = $this->get_input('dtl_company');  
+        
+        //echo $desc;exit;
+
+        if($dtl_name){
+            $data = array(                
+                'VDESC' => $desc,
+                'VNAME' => $dtl_name,
+                'VCOMPANY' => $dtl_company,
+                'VPOSITION' => $dtl_position
+            );
+        }
+        else {
+            $data = array(
+                'VTITLE' => $title,
+                'VDESC' => $desc
+            );
+        }
+        
+        
+        
+        $id_n = $this->pm->update($id, $data, "dtlpages", $dtl_id);
+        if($id_n == $id) {
+            $msg = array(
+                'msg' => "success"
+            );
+        } else {
+            $msg = array(
+                'msg' => "error"
+            );
+        }
+        $this->set_json($msg);
+    }
+    
+    function add_detail(){
+        $this->_cek_user_login();
+                
+        $title = $this->get_input('title');
+        $desc = $this->get_input('desc');
+        $dtl_name = $this->get_input('dtl_name');
+        $dtl_position = $this->get_input('dtl_position');
+        $dtl_company = $this->get_input('dtl_company');  
+        
+        //echo $this->input->post('desc');exit;
+        //echo $desc;exit;
+        
+        $data = array(
+            'HDRPAGES_ID' => '3',
+            'VTITLE' => 'Testimonial',
+            'VDESC' => $desc,
+            'VNAME' => $dtl_name,
+            'VCOMPANY' => $dtl_company,
+            'VPOSITION' => $dtl_position,
+            'VCREA' => 'System'
+        );        
+        
+        
+        if($id_n = $this->pm->insert("dtlpages", $data)){
+            $msg = array(
+                'msg' => "success"
+            );
+        }
+        
+        $this->set_json($msg);
     }
         
 }
