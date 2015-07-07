@@ -60,6 +60,9 @@ class Main extends My_Controller {
         if($datas = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '3'), TRUE)){
             $datas->VDESC = $this->security_decode($datas->VDESC);    
             $datas->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '3'));
+            foreach($datas->DETAILS as $details){
+                $details->VDESC = $this->security_decode($details->VDESC); 
+            }
                 //print_r($this->data['datas']->DETAILS);exit;                       
         }   
         return $datas;

@@ -151,10 +151,13 @@ class Backend extends My_Controller {
         $id = $this->get_input('id');
         $title = $this->get_input('title');
         $desc = $this->get_input('desc');
+        $datetime = date('Y-m-d H:i:s');
         
         $data = array(
             'VTITLE' => $title,
-            'VDESC' => $desc
+            'VDESC' => $desc,
+            'DMODI' => $datetime,
+            'VMODI' => $this->session->userdata('VUSERNAME')
         );
         
         
@@ -182,7 +185,7 @@ class Backend extends My_Controller {
         $dtl_name = $this->get_input('dtl_name');
         $dtl_position = $this->get_input('dtl_position');
         $dtl_company = $this->get_input('dtl_company');  
-        
+        $datetime = date('Y-m-d H:i:s');
         //echo $desc;exit;
 
         if($dtl_name){
@@ -190,13 +193,17 @@ class Backend extends My_Controller {
                 'VDESC' => $desc,
                 'VNAME' => $dtl_name,
                 'VCOMPANY' => $dtl_company,
-                'VPOSITION' => $dtl_position
+                'VPOSITION' => $dtl_position,
+                'DMODI' => $datetime,
+                'VMODI' => $this->session->userdata('VUSERNAME')
             );
         }
         else {
             $data = array(
                 'VTITLE' => $title,
-                'VDESC' => $desc
+                'VDESC' => $desc,
+                'DMODI' => $datetime,
+                'VMODI' => $this->session->userdata('VUSERNAME')
             );
         }
         
@@ -234,7 +241,7 @@ class Backend extends My_Controller {
             'VNAME' => $dtl_name,
             'VCOMPANY' => $dtl_company,
             'VPOSITION' => $dtl_position,
-            'VCREA' => 'System'
+            'VCREA' => $this->session->userdata('VUSERNAME')
         );        
         
         
@@ -243,6 +250,33 @@ class Backend extends My_Controller {
                 'msg' => "success"
             );
         }
+        
+        $this->set_json($msg);
+    }
+    
+    function update_information(){
+        $this->_cek_user_login();
+        $datetime = date('Y-m-d H:i:s');
+       
+        
+        foreach ($_POST as $key => $value) {
+            $hdrsettings_id = $this->input->post('hdrsettings_id');
+            $data = array(
+                'DMODI' => $datetime,
+                'VMODI' => $this->session->userdata('VUSERNAME')                
+            );
+            if($key != 'hdrsettings_id'){
+                $dtlsettings_id = $key;                
+                $data['VITEMVALUE'] = $this->input->post($key);
+                //print_r($data);exit;
+                $this->pm->update($hdrsettings_id, $data, "dtlsettings", $dtlsettings_id, "HDRSETTINGS_ID", "DTLSETTINGS_ID");
+            }          
+            
+        }
+        
+        $msg = array(
+            'msg' => "success"
+        );
         
         $this->set_json($msg);
     }

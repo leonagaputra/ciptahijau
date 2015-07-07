@@ -205,3 +205,26 @@ function reset_header(obj) {
         }
     });
 }
+
+function update_information(obj) {
+    var result = $("#information_form").serialize();
+    
+    show_loading();
+    $.ajax({
+        type: "POST",
+        dataType: "JSON",
+        data: result,
+        url: main.base_url + "index.php/backend/update_information",
+        error: function (jqxhr, exc) {
+            show_success_loading(0);
+        },
+        success: function (msg) {
+            //msgs = $.parseJSON(msg);
+            //console.log(msg);
+            $("#hdr input[name=title]").val(msg.VTITLE);
+            $("#hdr_desc").code(msg.VDESC);
+            show_success_loading(1);
+        }
+    });
+}
+

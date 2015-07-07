@@ -36,7 +36,7 @@
                                     
                                 ?>
                                 
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="button" class="btn btn-default" onclick="update_information(this)">Submit</button>
                                 <button type="reset" class="btn btn-default">Reset</button>
                             </form>
                         </div>

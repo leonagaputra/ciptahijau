@@ -49,12 +49,18 @@ class Pages_model extends CI_Model{
         return FALSE;
     }  
 
-    public function update($id, $data, $table = NULL, $dtl_id = NULL)
+    public function update($id, $data, $table = NULL, $dtl_id = NULL, $hdrfield = NULL, $dtlfield = NULL)
     {
-        $this->db->where('HDRPAGES_ID', $id);
+        if($hdrfield == NULL)
+            $this->db->where('HDRPAGES_ID', $id);
+        else
+            $this->db->where($hdrfield, $id);
         $table2 = $table == NULL ? $this->table : $table;
         if($dtl_id != NULL) {
-            $this->db->where('DTLPAGES_ID', $dtl_id);
+            if($dtlfield == NULL)
+                $this->db->where('DTLPAGES_ID', $dtl_id);
+            else 
+                $this->db->where($dtlfield, $dtl_id);
         }
         $this->db->update($table2, $data);
         return $id;
