@@ -21,7 +21,8 @@ class Main extends My_Controller {
         $this->data['contact_us'] = $this->_get_contact_us();
         $this->data['information'] = $this->_get_information();
         $this->data['testimonial'] = $this->_get_testimonial();
-        //print_r($this->data['information']);exit;
+        $this->data['projects'] = $this->_get_projects();
+        //print_r($this->data['about_us']);exit;
         $this->load->view('frontpage', $this->data);
     }
     
@@ -87,5 +88,17 @@ class Main extends My_Controller {
         return $datas;
     }
     
+
+    
+    private function _get_projects(){
+        //get about_us data
+        $datas = NULL;
+        if($datas = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '5'), TRUE)){
+            $datas->VDESC = $this->security_decode($datas->VDESC);                      
+            
+                //print_r($this->data['datas']->DETAILS);exit;                       
+        }   
+        return $datas;
+    }
         
 }

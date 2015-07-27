@@ -17,7 +17,8 @@
     <script src="<?php echo $base_url;?>js/modernizr.custom.js?v=<?php echo $version;?>"></script>
     <script src="<?php echo $base_url;?>js/classie.js?v=<?php echo $version;?>"></script>
     <script src="<?php echo $base_url;?>js/elastic_grid.min.js?v=<?php echo $version;?>"></script>
-    <script src="<?php echo $base_url;?>js/portfolio_slider.js?v=<?php echo $version;?>"></script>
+    <!--<script src="<?php //echo $base_url;?>js/portfolio_slider.js?v=<?php //echo $version;?>"></script>-->
+    <script src="<?php echo $base_url;?>index.php/Javascript/portfolio_slider?v=<?php echo $version;?>"></script>    
 
     <!-- Custom js-->
     <script src="<?php echo $base_url;?>js/custom.js?v=<?php echo $version;?>"></script>

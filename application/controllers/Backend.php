@@ -107,6 +107,17 @@ class Backend extends My_Controller {
         }         
     }
     
+    public function projects(){
+        //cek login 
+        $this->_cek_user_login();
+        
+        if($this->data['datas'] = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '5'), TRUE)){
+            $this->data['datas']->VDESC = $this->security_decode($this->data['datas']->VDESC);            
+            $this->data['page'] = 'projects.php';              
+            $this->load->view('adminpage', $this->data);
+        }         
+    }
+    
     public function information(){
         //cek login 
         $this->_cek_user_login();

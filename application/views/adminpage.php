@@ -142,8 +142,8 @@
                         <li <?php echo ($page == "services.php" ? "class='active'" : ""); ?>>
                             <a href="<?php echo $base_url."index.php/backend/services" ?>">Service</a>
                         </li>
-                        <li >
-                            <a href="table.html">Projects</a>
+                        <li <?php echo ($page == "projects.php" ? "class='active'" : ""); ?>>
+                            <a href="<?php echo $base_url."index.php/backend/projects" ?>">Projects</a>
                         </li>
                         <li <?php echo ($page == "testimonial.php" ? "class='active'" : ""); ?>>
                             <a href="<?php echo $base_url."index.php/backend/testimonial" ?>">Testimoni</a>
