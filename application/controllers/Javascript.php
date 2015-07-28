@@ -25,8 +25,8 @@ class Javascript extends My_Controller {
         //$this->data['about_us'] = $this->_get_about_us();
         //echo $this->data['base_url'];exit;
         $datas = NULL;
-        $this->data['thumbnail'] = "img/portfolio/small/";
-        $this->data['large'] = "img/portfolio/large/";
+        $this->data['thumbnail'] = $this->data['base_url']."img/portfolio/small/";
+        $this->data['large'] = $this->data['base_url']."img/portfolio/large/";
         $this->data['separator'] = "--|||--";
         if($this->data['datas'] = $this->pm->get('hdrworks')){
             foreach($this->data['datas'] as $data){

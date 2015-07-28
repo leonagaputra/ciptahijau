@@ -18,7 +18,7 @@
                     echo "<li>";
                         echo '<div class="media testi_media">';
                             echo '<a class="media-left testi_img" href="#">';
-                                echo '<img src="img/testimonial-pic1.jpg" alt="img">';
+                                echo '<img src="'.$base_url.'img/testimonial-pic1.jpg" alt="img">';
                             echo '</a>';
                             echo '<div class="media-body">';
                                 echo '<h4 class="media-heading">'.$detail->VNAME.'</h4>';

@@ -23,3 +23,12 @@
     <!-- Custom js-->
     <script src="<?php echo $base_url;?>js/custom.js?v=<?php echo $version;?>"></script>
     
+    <script type="text/javascript">
+        var main = {
+            base_url:"",
+            base_app:""
+        };
+    main.base_url = "<?php echo $base_url; ?>";
+    main.base_app = "<?php echo $base_app; ?>";
+    </script>
+    
