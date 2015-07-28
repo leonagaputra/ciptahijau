@@ -118,6 +118,70 @@ class Backend extends My_Controller {
         }         
     }
     
+    public function project_details(){
+        //cek login 
+        $this->_cek_user_login();
+        if($this->data['datas'] = $this->pm->get('hdrpages',array('HDRPAGES_ID'=> '5'), TRUE)){
+            $this->data['datas']->VDESC = $this->security_decode($this->data['datas']->VDESC);            
+            $this->data['page'] = 'proj_details.php';              
+            $this->load->view('adminpage', $this->data);
+        } 
+    }
+    
+    public function project_datas(){
+        //cek login 
+        $this->_cek_user_login();
+        
+        $order = $this->get_input('order');
+        $limit = $this->get_input('limit');
+        $offset = $this->get_input('offset');
+        $sort = $this->get_input('sort') ? $this->get_input('sort') : NULL;
+        $desc = $order == "asc" ? FALSE : TRUE;
+        $search = $this->get_input('search');
+        
+        $search_val = array(
+            'VTITLE' => $search
+        );
+        
+        $sorts = array(
+            'id' => 'HDRWORKS_ID',
+            'title' => 'VTITLE',
+            'client' => 'VCLIENT',
+            'location' => 'VLOCATION',
+            'year' => 'IYEAR'
+        );                       
+        
+        
+        //print_r($test);exit;
+        $cnt = $this->pm->get('hdrworks', $search_val, TRUE, TRUE);
+        $results = array();
+        if($cnt->cnt > 0){
+            if($datas = $this->pm->get('hdrworks', $search_val, FALSE, FALSE, $limit, $offset, ($sort? $sorts[$sort]:NULL), $desc)){
+                $results['total'] = $cnt->cnt;
+                $results['rows'] = array();
+                foreach($datas as $data){
+                    $row = array(
+                        'id'=> $data->HDRWORKS_ID,
+                        'title' => $data->VTITLE,
+                        'client' => $data->VCLIENT,
+                        'location' => $data->VLOCATION,
+                        'year' => $data->IYEAR
+                    );
+                    array_push($results['rows'], (object)$row);
+                }
+            } else {
+                $results['total'] = 0;
+                $results['rows'] = (object)array();
+            }
+        } else {
+            $results['total'] = 0;
+            $results['rows'] = (object)array();
+        }
+        
+        $this->set_json((object)$results);
+        
+    }
+    
     public function information(){
         //cek login 
         $this->_cek_user_login();

@@ -15,6 +15,14 @@
 <script src="<?php echo $base_url;?>js/iosOverlay.js?v=<?php echo $version;?>"></script>    
 <script src="<?php echo $base_url;?>js/spin.min.js?v=<?php echo $version;?>"></script>    
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/locale/bootstrap-table-en-US.min.js"></script>
+
+
 <!--<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.8.1/bootstrap-table.min.js"></script>-->
 
 <!-- Latest compiled and minified Locales -->
@@ -83,5 +91,9 @@
 	                form.submit();
 	            }
 	        });
+                
+        $("#proj_table").bootstrapTable({}).on('click-row.bs.table', function (e, row, $element) {
+                alert('Event: click-row.bs.table, data: ' + JSON.stringify(row));
+            });
     });
 </script>

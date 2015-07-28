@@ -142,9 +142,17 @@
                         <li <?php echo ($page == "services.php" ? "class='active'" : ""); ?>>
                             <a href="<?php echo $base_url."index.php/backend/services" ?>">Service</a>
                         </li>
-                        <li <?php echo ($page == "projects.php" ? "class='active'" : ""); ?>>
-                            <a href="<?php echo $base_url."index.php/backend/projects" ?>">Projects</a>
-                        </li>
+                        <li <?php echo (($page == "projects.php" || $page == "proj_details.php") ? "class='active'" : ""); ?>>
+                            <a data-target="#demo" data-toggle="collapse" href="javascript:;" class="" aria-expanded="true"> Projects <i class="fa fa-fw fa-caret-down"></i></a>
+                            <ul class="collapse in" id="demo" aria-expanded="true" style="">
+                                <li>
+                                    <a href="<?php echo $base_url."index.php/backend/projects" ?>">Description</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo $base_url."index.php/backend/project_details" ?>">Detail</a>
+                                </li>
+                            </ul>
+                        </li>                        
                         <li <?php echo ($page == "testimonial.php" ? "class='active'" : ""); ?>>
                             <a href="<?php echo $base_url."index.php/backend/testimonial" ?>">Testimoni</a>
                         </li>

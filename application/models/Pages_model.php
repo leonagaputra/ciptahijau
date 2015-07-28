@@ -15,14 +15,14 @@ class Pages_model extends CI_Model{
         if($table != NULL){
             $ttable = $table;
         }
-        if($count) $this->db->select('count(id) as cnt');
+        if($count) $this->db->select('count(VCREA) as cnt');
         $this->db->from($ttable);
 
         if($data != NULL)
         {
             foreach($data as $key=>$val)
             {
-                $this->db->where($key, $val);
+                $this->db->like($key, $val);
             }
         }
 

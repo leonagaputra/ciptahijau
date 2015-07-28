@@ -10,7 +10,7 @@
                                     Admin Page
                                 </li>
                                 <li class="active">
-                                    Projects
+                                    Project Description
                                 </li>
                             </ol>
                         </div>

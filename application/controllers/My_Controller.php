@@ -35,7 +35,7 @@ class My_Controller extends CI_Controller {
     
     function get_input($str, $is_secure = TRUE){
         if($is_secure)
-            return $this->security($this->input->post($str));
+            return $this->security($this->input->get_post($str));
         else
             return $this->input->post($str);
         //return $this->input->post($str);
