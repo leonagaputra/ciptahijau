@@ -13,7 +13,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Favicon -->
-        <link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
+        <link rel="shortcut icon" type="image/png" href="<?php echo $base_url;?>img/favicon.ico"/>
 
         <!-- CSS
         ================================================== -->       
@@ -57,10 +57,10 @@
                             <!-- LOGO -->
 
                             <!-- TEXT BASED LOGO -->
-                            <a class="navbar-brand" href="#"><img src="img/logo.png" ></a>
+                            <a class="navbar-brand" href="#"><img src="<?php echo $base_url;?>img/logo.png" ></a>
 
                             <!-- IMG BASED LOGO  -->
-                            <!--  <a class="navbar-brand" href="#"><img src="img/logo.png" alt="logo"></a> --> 
+                            <!--  <a class="navbar-brand" href="#"><img src="<?php echo $base_url;?>img/logo.png" alt="logo"></a> --> 
 
 
                         </div>
@@ -91,7 +91,7 @@
                             <!-- SECOND SLIDE OVERLAY -->
                             <div class="slider_overlay"></div> 
                             <!-- SECOND SLIDE MAIN IMAGE -->
-                            <img src="img/full-slider/full-slide2.jpg" alt="img">
+                            <img src="<?php echo $base_url;?>img/full-slider/full-slide2.jpg" alt="img">
                             <!-- SECOND SLIDE CAPTION-->
                             <div class="slider_caption">
                                 <h2>We Care More for Our Customer, Employees, Community and Environment</h2>
@@ -105,7 +105,7 @@
                             <!-- THIRD SLIDE OVERLAY -->
                             <div class="slider_overlay"></div> 
                             <!-- THIRD SLIDE MAIN IMAGE -->
-                            <img src="img/full-slider/full-slide1.jpg" alt="img">
+                            <img src="<?php echo $base_url;?>img/full-slider/full-slide1.jpg" alt="img">
                             <!-- THIRD SLIDE CAPTION-->
                             <div class="slider_caption">
                                 <h2>We'll change your Idea of Design</h2>
@@ -222,19 +222,19 @@
                                             <div class="featured_slider">
                                                 <!-- SINGLE SLIDE IN THE SLIDER -->
                                                 <div class="single_iteam">
-                                                    <a href="#"> <img src="img/feature_img1.jpg" alt="img"></a>                          
+                                                    <a href="#"> <img src="<?php echo $base_url;?>img/feature_img1.jpg" alt="img"></a>                          
                                                 </div>
                                                 <!-- SINGLE SLIDE IN THE SLIDER -->
                                                 <div class="single_iteam">
-                                                    <a href="#"> <img src="img/feature_img2.jpg" alt="img"></a>                          
+                                                    <a href="#"> <img src="<?php echo $base_url;?>img/feature_img2.jpg" alt="img"></a>                          
                                                 </div>
                                                 <!-- SINGLE SLIDE IN THE SLIDER -->
                                                 <div class="single_iteam">
-                                                    <a href="#"> <img src="img/feature_img3.jpg" alt="img"></a>                           
+                                                    <a href="#"> <img src="<?php echo $base_url;?>img/feature_img3.jpg" alt="img"></a>                           
                                                 </div>
                                                 <!-- SINGLE SLIDE IN THE SLIDER -->
                                                 <div class="single_iteam">
-                                                    <a href="#"> <img src="img/feature_img4.jpg" alt="img"></a>                           
+                                                    <a href="#"> <img src="<?php echo $base_url;?>img/feature_img4.jpg" alt="img"></a>                           
                                                 </div>
 
                                             </div>
@@ -281,13 +281,13 @@
 //                            echo '<div class="service_iconarea">';
 //                                echo '<span class="fa service_icon">';
 //                                    if($i == 0){
-//                                        echo '<img src="img/maintanance.png">';
+//                                        echo '<img src="<?php echo $base_url;?>img/maintanance.png">';
 //                                    }else if($i == 1) {
-//                                        echo '<img src="img/landscape.png">';
+//                                        echo '<img src="<?php echo $base_url;?>img/landscape.png">';
 //                                    }else if($i == 2) {
-//                                        echo '<img src="img/designs.png">';
+//                                        echo '<img src="<?php echo $base_url;?>img/designs.png">';
 //                                    }else {
-//                                        echo '<img src="img/treesurgery.png">';
+//                                        echo '<img src="<?php echo $base_url;?>img/treesurgery.png">';
 //                                    }
 //                                echo '</span>';
 //                            echo '</div>';
@@ -302,7 +302,7 @@
                                     <!-- BEGAIN SINGLE SERVICE -->
                                     <div class="single_service wow fadeInLeft">
                                         <div class="service_iconarea">
-                                            <span class="fa service_icon"><img src="img/maintanance.png"></span>
+                                            <span class="fa service_icon"><img src="<?php echo $base_url;?>img/maintanance.png"></span>
                                         </div>
                                         <h3 class="service_title"><?php echo $services->DETAILS[0]->VTITLE;?></h3>
                                         <?php echo $services->DETAILS[0]->VDESC;?>
@@ -312,7 +312,7 @@
                                     <!-- BEGAIN SINGLE SERVICE -->
                                     <div class="single_service wow fadeInRight">
                                         <div class="service_iconarea">
-                                            <span class="fa service_icon"><img src="img/landscape.png"></span>
+                                            <span class="fa service_icon"><img src="<?php echo $base_url;?>img/landscape.png"></span>
                                         </div>
                                         <h3 class="service_title"><?php echo $services->DETAILS[1]->VTITLE;?></h3>
                                         <?php echo $services->DETAILS[1]->VDESC;?>
@@ -322,7 +322,7 @@
                                     <!-- BEGAIN SINGLE SERVICE -->
                                     <div class="single_service wow fadeInLeft">
                                         <div class="service_iconarea">
-                                            <span class="fa service_icon"><img src="img/designs.png"></span>
+                                            <span class="fa service_icon"><img src="<?php echo $base_url;?>img/designs.png"></span>
                                         </div>
                                         <h3 class="service_title"><?php echo $services->DETAILS[2]->VTITLE;?></h3>
                                         <?php echo $services->DETAILS[2]->VDESC;?>
@@ -332,7 +332,7 @@
                                     <!-- BEGAIN SINGLE SERVICE -->
                                     <div class="single_service wow fadeInRight">
                                         <div class="service_iconarea">
-                                            <span class="fa service_icon"><img src="img/treesurgery.png"></span>
+                                            <span class="fa service_icon"><img src="<?php echo $base_url;?>img/treesurgery.png"></span>
                                         </div>
                                         <h3 class="service_title"><?php echo $services->DETAILS[3]->VTITLE;?></h3>
                                         <?php echo $services->DETAILS[3]->VDESC;?>
@@ -416,49 +416,49 @@
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#1 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img1.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img1.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#2 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img2.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img2.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#3 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img4.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img4.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#4 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img3.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img3.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#5 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img4.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img4.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#6 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img5.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img5.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#7 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img1.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img1.png" alt="clients Brand">
                                         </div>
                                     </div>
                                     <!-- BEGAIN SINGLE CLIENT SLIDE#8 -->
                                     <div class="col-lg-3 col-md-3 col-sm-3">
                                         <div class="single_client">
-                                            <img src="img/clients_img2.png" alt="clients Brand">
+                                            <img src="<?php echo $base_url;?>img/clients_img2.png" alt="clients Brand">
                                         </div>
                                     </div>
                                 </div>
