@@ -16,6 +16,19 @@ class Main extends My_Controller {
     
     //put your code here
     public function index(){       
+        //$this->_homepage();
+        $this->_under_construction();
+    }
+    
+    public function beta(){
+        $this->_homepage();
+    }
+    
+    private function _under_construction(){
+        $this->load->view('construction', $this->data);
+    }
+    
+    private function _homepage(){
         $this->data['about_us'] = $this->_get_about_us();
         $this->data['services'] = $this->_get_services();
         $this->data['contact_us'] = $this->_get_contact_us();
