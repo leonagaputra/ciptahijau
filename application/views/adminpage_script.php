@@ -32,7 +32,10 @@
     main.base_url = "<?php echo $base_url; ?>";
     main.base_app = "<?php echo $base_app; ?>";
     $(document).ready(function () {
-        $('.summernote').summernote();
+        $("#proj_details_form").validate();
+        $('.summernote').summernote({
+            height:100
+        });
         //$('#services_desc').summernote();
         
         //$('#detail_testimonial').dataTable();

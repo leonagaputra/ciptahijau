@@ -11,7 +11,7 @@ class My_Controller extends CI_Controller {
         parent::__construct();
         $this->data['base_app'] = $this->config->item('base_app');
         $this->data['base_url'] = $this->config->item('base_url');
-        $this->data['version'] = "0.1";
+        $this->data['version'] = "0.2.1";
     }
 
     function index() {

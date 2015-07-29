@@ -228,3 +228,89 @@ function update_information(obj) {
     });
 }
 
+function add_new_project(){    
+    $("#project_list").hide();
+    $("#proj_details_div").show();
+}
+
+function add_new_project_back(){    
+    $("#project_list").show();
+    $("#proj_details_div").hide();
+}
+
+function add_new_project_submit(){
+    var valid = $("#proj_details_form").valid();
+    var param = "";    
+    
+    //alert(valid);
+    if(valid){
+        param += "itemid=" + $("#itemid").val();
+        param += "&title=" + $("#title").val();
+        param += "&desc=" + $("#desc").code();
+        
+        param += "&client=" + $("#client").val();
+        param += "&market=" + $("#market").val();
+        param += "&service=" + $("#service").val();
+        param += "&wdscl=" + $("#wdscl").val();
+        param += "&location=" + $("#location").val();
+        param += "&length=" + $("#length").val();
+        param += "&status=" + $("#status").val();
+        param += "&year=" + $("#year option:selected").val()
+        
+        show_loading();
+        $.ajax({
+            type: "POST",
+            dataType: "JSON",
+            data: param,
+            url: main.base_url + "index.php/backend/update_project_detail",
+            error: function (jqxhr, exc) {
+                show_success_loading(0);
+            },
+            success: function (msg) {
+                //msgs = $.parseJSON(msg);
+                //console.log(msg);
+                show_success_loading(1);
+                disable_form_add();
+            }
+        });
+    }
+}
+
+function disable_form_add(){
+    $("#add_new_button").removeAttr('disabled');
+    $("#submit_button").attr('disabled', true);
+    $("#reset_button").attr('disabled', true);
+    
+    $("#title").attr('disabled', true);
+    //$("#desc").attr('disabled', true);
+    $(".note-editable").attr('contenteditable', false);
+        
+    $("#client").attr('disabled', true);
+    $("#market").attr('disabled', true);
+    $("#service").attr('disabled', true);
+    $("#wdscl").attr('disabled', true);
+    $("#location").attr('disabled', true);
+    $("#length").attr('disabled', true);
+    $("#status").attr('disabled', true);
+    $("#year").attr('disabled', true);
+}
+
+function enable_form_add(){
+    //$("#add_new_button").removeAttr('disabled');
+    $("#add_new_button").attr('disabled', true);
+    $("#submit_button").removeAttr('disabled');
+    $("#reset_button").removeAttr('disabled');
+    
+    $("#title").removeAttr('disabled');
+    //$("#desc").attr('disabled', true);
+    $(".note-editable").attr('contenteditable', true);
+        
+    $("#client").removeAttr('disabled');
+    $("#market").removeAttr('disabled');
+    $("#service").removeAttr('disabled');
+    $("#wdscl").removeAttr('disabled');
+    $("#location").removeAttr('disabled');
+    $("#length").removeAttr('disabled');
+    $("#status").removeAttr('disabled');
+    $("#year").removeAttr('disabled');
+}

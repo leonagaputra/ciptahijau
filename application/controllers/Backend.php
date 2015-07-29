@@ -128,6 +128,48 @@ class Backend extends My_Controller {
         } 
     }
     
+    public function update_project_detail(){        
+        
+        $itemid = $this->get_input('itemid');
+        $title = $this->get_input('title');
+        $desc = $this->get_input('desc');
+        $client = $this->get_input('client');
+        $market = $this->get_input('market');
+        $service = $this->get_input('service');
+        $wdscl = $this->get_input('wdscl');
+        $location = $this->get_input('location');
+        $length = $this->get_input('length');
+        $status = $this->get_input('status');        
+        $year = $this->get_input('year');
+        $data = array(
+            'VTITLE' => $title,
+            'VDESC' => $desc,
+            'VCLIENT' => $client,
+            'VMARKET' => $market,
+            'VSERVICES' => $service,
+            'VWDSCL' => $wdscl,
+            'VLOCATION' => $location,
+            'IYEAR' => $year,
+            'VLENGTH' => $length,
+            'VSTATUS' => $status
+        );
+        if($itemid){
+            echo "edit";
+        } else {
+            //echo "insert";
+            $data['VCREA'] = $this->session->userdata('VUSERNAME');
+            $data['DCREA'] = date("Y-m-d H:i:s");
+            $insert_id = $this->pm->insert("hdrworks", $data);
+                    
+            $msg = array(
+                'msg' => "success"
+            );
+            $this->set_json($msg);
+        }       
+        
+        
+    }
+    
     public function project_datas(){
         //cek login 
         $this->_cek_user_login();
