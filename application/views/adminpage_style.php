@@ -4,6 +4,8 @@
     <!-- Custom CSS -->
     <link href="<?php echo $base_url;?>css/sb-admin.css?v=<?php echo $version;?>" rel="stylesheet">
     <link href="<?php echo $base_url;?>css/summernote.css?v=<?php echo $version;?>" rel="stylesheet">
+    
+    <link href="<?php echo $base_url;?>css/dropzone.css?v=<?php echo $version;?>" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="<?php echo $base_url;?>font-awesome/css/font-awesome.min.css?v=<?php echo $version;?>" rel="stylesheet" type="text/css">

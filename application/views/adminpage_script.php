@@ -7,6 +7,7 @@
 <script src="<?php echo $base_url; ?>js/summernote.min.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/about_us.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/services.js?v=<?php echo $version; ?>"></script>
+<script src="<?php echo $base_url; ?>js/dropzone.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/testimonial.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/jquery.dataTables.min.js?v=<?php echo $version; ?>"></script>
 <script src="<?php echo $base_url; ?>js/dataTables.tableTools.min.js?v=<?php echo $version; ?>"></script>
@@ -96,7 +97,9 @@
 	        });
                 
         $("#proj_table").bootstrapTable({}).on('click-row.bs.table', function (e, row, $element) {
-                alert('Event: click-row.bs.table, data: ' + JSON.stringify(row));
-            });
+                //alert('Event: click-row.bs.table, data: ' + JSON.stringify(row));
+                //console.log(row);
+                edit_project(row.id);
+        });
     });
 </script>

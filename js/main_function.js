@@ -229,13 +229,57 @@ function update_information(obj) {
 }
 
 function add_new_project(){    
+    add_new_reset();
+    enable_form_add();
     $("#project_list").hide();
     $("#proj_details_div").show();
+}
+
+function edit_project(id){
+    $(".form-control").removeClass("error");
+    $(".error").hide();
+    show_loading();
+    $.ajax({
+        type: "POST",
+        dataType: "JSON",
+        data: "id="+id,
+        url: main.base_url + "index.php/backend/get_project",
+        error: function (jqxhr, exc) {
+            show_success_loading(0);
+        },
+        success: function (msg) {
+            //msgs = $.parseJSON(msg);
+            //console.log(msg);
+            $("#project_list").hide();
+            $("#proj_details_div").show();
+            enable_form_add()
+            
+            $("#itemid").val(msg.HDRWORKS_ID);
+            $("#title").val(msg.VTITLE);            
+            $("#client").val(msg.VCLIENT);
+            $("#market").val(msg.VMARKET);
+            $("#service").val(msg.VSERVICES);
+            $("#wdscl").val(msg.VWDSCL);
+            $("#location").val(msg.VLOCATION);
+            $("#length").val(msg.VLENGTH);
+            $("#status").val(msg.VSTATUS);
+            $("#year").val(msg.IYEAR);
+            $("#desc").code(msg.VDESC);
+            $("#tags").val(msg.VTAGS);
+            
+            hide_overlay();
+            //show_success_loading(1);
+            
+            $("#proj_details_upload").show();
+        }
+    });
+    
 }
 
 function add_new_project_back(){    
     $("#project_list").show();
     $("#proj_details_div").hide();
+    $("#proj_details_upload").hide();
 }
 
 function add_new_project_submit(){
@@ -293,6 +337,8 @@ function disable_form_add(){
     $("#length").attr('disabled', true);
     $("#status").attr('disabled', true);
     $("#year").attr('disabled', true);
+    
+    $("#proj_details_upload").show();
 }
 
 function enable_form_add(){
@@ -313,4 +359,13 @@ function enable_form_add(){
     $("#length").removeAttr('disabled');
     $("#status").removeAttr('disabled');
     $("#year").removeAttr('disabled');
+    add_new_reset();
+}
+
+function add_new_reset(){    
+    $("#desc").code("");
+    $("#proj_details_form").get(0).reset();   
+    $("#itemid").val("");
+    $('div.dz-success').remove();
+    $('div.dz-error').remove();    
 }

@@ -1,5 +1,6 @@
  <!-- initialize jQuery Library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script src="<?php echo $base_url;?>js/jquery-1.11.3.min.js?v=<?php echo $version;?>"></script>
     <!-- Google map -->
     <script src="https://maps.googleapis.com/maps/api/js"></script>
     <script src="<?php echo $base_url;?>js/jquery.ui.map.js?v=<?php echo $version;?>"></script>

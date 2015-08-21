@@ -9,9 +9,12 @@ include_once('My_Controller.php');
 
 class Backend extends My_Controller {
     //put your code here
+    var $HDRWORKS_ID;
     
     public function __construct() {
         parent::__construct();
+        $this->folder_upload_large = "img/portfolio/large/";
+        $this->folder_upload_small = "img/portfolio/small/";
         $this->load->model('pages_model', 'pm');
         $this->load->model('user_model', 'um');
         $this->load->helper('url');
@@ -154,7 +157,14 @@ class Backend extends My_Controller {
             'VSTATUS' => $status
         );
         if($itemid){
-            echo "edit";
+            //echo "edit";
+            $data['VMODI'] = $this->session->userdata('VUSERNAME');
+            $data['DMODI'] = date("Y-m-d H:i:s");
+            $update_id = $this->pm->update($itemid, $data, "hdrworks",NULL, "HDRWORKS_ID", NULL);
+            $msg = array(
+                'msg' => "success"
+            );
+            $this->set_json($msg);
         } else {
             //echo "insert";
             $data['VCREA'] = $this->session->userdata('VUSERNAME');
@@ -168,6 +178,35 @@ class Backend extends My_Controller {
         }       
         
         
+    }
+    
+    public function get_project(){
+        //cek login 
+        $this->_cek_user_login();
+        $id = $this->get_input("id");
+        $this->HDRWORKS_ID = $id;
+        $this->session->set_userdata('HDRWORKS_ID', $id);
+        //echo $this->HDRWORKS_ID;exit;
+        $datas = array(
+            'HDRWORKS_ID'=>$id
+        );
+        //print_r($test);exit;$search_val
+        $cnt = $this->pm->get('hdrworks', $datas, TRUE, TRUE);
+        $results = array();
+        if($cnt->cnt > 0){
+            if($datas = $this->pm->get('hdrworks', $datas, TRUE)){                
+                $results = $datas;               
+                
+            } else {
+                $results['total'] = 0;
+                $results['rows'] = (object)array();
+            }
+        } else {
+            $results['total'] = 0;
+            $results['rows'] = (object)array();
+        }
+        
+        $this->set_json((object)$results);
     }
     
     public function project_datas(){
@@ -194,11 +233,11 @@ class Backend extends My_Controller {
         );                       
         
         
-        //print_r($test);exit;
-        $cnt = $this->pm->get('hdrworks', $search_val, TRUE, TRUE);
+        //print_r($test);exit;$search_val
+        $cnt = $this->pm->get('hdrworks', NULL, TRUE, TRUE, NULL, NULL, NULL, FALSE, $search_val);
         $results = array();
         if($cnt->cnt > 0){
-            if($datas = $this->pm->get('hdrworks', $search_val, FALSE, FALSE, $limit, $offset, ($sort? $sorts[$sort]:NULL), $desc)){
+            if($datas = $this->pm->get('hdrworks', NULL, FALSE, FALSE, $limit, $offset, ($sort? $sorts[$sort]:NULL), $desc, $search_val)){
                 $results['total'] = $cnt->cnt;
                 $results['rows'] = array();
                 foreach($datas as $data){
@@ -387,7 +426,7 @@ class Backend extends My_Controller {
                 $data['VITEMVALUE'] = $this->input->post($key);
                 //print_r($data);exit;
                 $this->pm->update($hdrsettings_id, $data, "dtlsettings", $dtlsettings_id, "HDRSETTINGS_ID", "DTLSETTINGS_ID");
-            }          
+            }        
             
         }
         
@@ -396,6 +435,127 @@ class Backend extends My_Controller {
         );
         
         $this->set_json($msg);
+    }
+    
+    function upload_img()
+    {
+        $this->HDRWORKS_ID = $this->session->userdata('HDRWORKS_ID');
+        //echo $this->HDRWORKS_ID. " afafafa";exit;
+        $this->_cek_user_login();
+        //print_r($_FILES);exit;
+        
+        $image_id = 0;
+        
+        //$folder = "system/application/assets/img/upload/";
+        $error = "";
+        $msg = "";
+        $fileElementName = 'file';
+        
+        list(,,$type) = getimagesize($_FILES[$fileElementName]['tmp_name']);
+        $type = image_type_to_extension($type);
+        
+        //print_r($_FILES[$fileElementName]);exit;
+        //print_r(pathinfo($_FILES[$fileElementName]['name']));exit;
+        $tmp = pathinfo($_FILES[$fileElementName]['name']);
+        $ext = $tmp['extension'];
+        $pos = strpos($_FILES[$fileElementName]["type"],"image");
+        if($pos === false) {
+         // not image
+            $error = "File harus berupa image";
+        }
+        else {
+         // image
+        }
+
+        if(!empty($_FILES[$fileElementName]['error']))
+        {
+            switch($_FILES[$fileElementName]['error'])
+            {
+
+                case '1':
+                    $error = 'The uploaded file exceeds the upload_max_filesize directive in php.ini';
+                    break;
+                case '2':
+                    $error = 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form (2MB)';
+                    break;
+                case '3':
+                    $error = 'The uploaded file was only partially uploaded';
+                    break;
+                case '4':
+                    $error = 'No file was uploaded.';
+                    break;
+
+                case '6':
+                    $error = 'Missing a temporary folder';
+                    break;
+                case '7':
+                    $error = 'Failed to write file to disk';
+                    break;
+                case '8':
+                    $error = 'File upload stopped by extension';
+                    break;
+                case '999':
+                default:
+                    $error = 'No error code avaiable';
+            }
+        }
+        else if(empty($_FILES[$fileElementName]['tmp_name']) || $_FILES[$fileElementName]['tmp_name'] == 'none')
+        {
+            $error = 'No file was uploaded..';
+        }
+        else
+        { 
+           
+            $data = array(
+                'HDRWORKS_ID' => $this->HDRWORKS_ID,
+                'VTHUMBNAIL' => $ext,
+                'VLARGE' => $ext,
+                'VCREA' => $this->session->userdata('VUSERNAME'),
+                'DCREA' => date("Y-m-d H:i:s")
+            );
+            //print_r($data);
+            //insert ke detail
+            $image_id = $this->pm->insert("dtlworks",$data);
+            $filename = $this->HDRWORKS_ID ."_".$image_id.".".$ext;
+            $update_data = array(
+                'VTHUMBNAIL' => $filename,
+                'VLARGE' => $filename                
+            );
+            $this->pm->update($this->HDRWORKS_ID,$update_data,"dtlworks", $image_id, "HDRWORKS_ID", "DTLWORKS_ID");
+            
+            move_uploaded_file($_FILES[$fileElementName]["tmp_name"], $this->folder_upload_large . $filename);
+            
+            //create thumbnail
+            $t = 'imagecreatefrom'.$type;
+            $t = str_replace('.','',$t);
+            $img = $t($this->folder_upload_large . $filename);
+            
+            $k = 250;
+            $v = 250;
+            
+            $width = imagesx( $img );
+            $height = imagesy( $img );
+
+            $new_width = $v;
+            $new_height = floor( $height * ( $v / $width ) );
+
+            $tmp_img = imagecreatetruecolor( $new_width, $new_height );
+            imagealphablending( $tmp_img, false );
+            imagesavealpha( $tmp_img, true );
+            imagecopyresized( $tmp_img, $img, 0, 0, 0, 0, $new_width, $new_height, $width, $height );
+
+            $c = 'image'.$type;
+            $c = str_replace('.','',$c);
+            $c( $tmp_img, $this->folder_upload_small . $filename );
+          
+        }
+       
+        echo "{";
+        echo				"error: '" . $error . "',\n";
+        echo				"msg: '" . $msg . "',\n";
+        echo				"image_id: '" . $image_id . "',\n";
+        echo				"extension: '" . $ext . "'\n";
+        echo "}";
     }
         
 }

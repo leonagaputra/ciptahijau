@@ -269,34 +269,7 @@
                         <div class="service_area">
                             <div class="row">
                                 <?php
-//                $i = 0;
-//                foreach($services->DETAILS as $detail){
-//                    echo '<div class="col-lg-6 col-md-6 col-sm-6">';
-//                        if(($i % 2) == 0){
-//                            echo '<div class="single_service wow fadeInLeft aaa">';
-//                        }                            
-//                        else{
-//                            echo '<div class="single_service wow fadeInRight bbb">';
-//                        }
-//                            echo '<div class="service_iconarea">';
-//                                echo '<span class="fa service_icon">';
-//                                    if($i == 0){
-//                                        echo '<img src="<?php echo $base_url;?>img/maintanance.png">';
-//                                    }else if($i == 1) {
-//                                        echo '<img src="<?php echo $base_url;?>img/landscape.png">';
-//                                    }else if($i == 2) {
-//                                        echo '<img src="<?php echo $base_url;?>img/designs.png">';
-//                                    }else {
-//                                        echo '<img src="<?php echo $base_url;?>img/treesurgery.png">';
-//                                    }
-//                                echo '</span>';
-//                            echo '</div>';
-//                            echo '<h3 class="service_title">'.$detail->VTITLE.'</h3>';
-//                            echo $detail->VDESC;
-//                        echo '</div>';
-//                    echo '</div>';
-//                    $i++;
-//                }
+
                                 ?>
                                 <div class="col-lg-6 col-md-6 col-sm-6">
                                     <!-- BEGAIN SINGLE SERVICE -->

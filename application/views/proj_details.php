@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Year</label>
-                                    <select class="form-control" id="year">
+                                    <select class="form-control" id="year" required="">
                                         <?php
                                             $year = date("Y");
                                             for($i = $year; $i >= 2000; $i--){
@@ -122,12 +122,20 @@
                                     <label>Status</label>
                                     <input name="status" id="status" class="form-control" maxlength="45"  >
                                 </div>
+                                <div class="form-group">
+                                    <label>Status</label>
+                                    <input name="tags" id="tags" class="form-control" maxlength="45"  >
+                                </div>
 
                                 <button type="button" id="add_new_button" class="btn btn-default" onclick="enable_form_add()" disabled="">Add New </button>
                                 <button type="button" id="submit_button" class="btn btn-default" onclick="add_new_project_submit()">Submit </button>
-                                <button type="reset" id="reset_button" class="btn btn-default" >Reset </button>
+                                <button type="button" id="reset_button" class="btn btn-default" onclick="add_new_reset()" >Reset </button>
                                 <button type="button" class="btn btn-default" onclick="add_new_project_back()">Back</button>
                             </form>
+                        </div>
+                        <div class="col-lg-8" id="proj_details_upload" style="display: none;">
+                            <form action="<?php echo $base_url?>index.php/backend/upload_img" class="dropzone"></form>
+                            <img src="removebutton.png" alt="Click me to remove the file." data-dz-remove />
                         </div>
                     </div>
                     <!-- /.row -->

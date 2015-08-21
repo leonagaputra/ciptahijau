@@ -9,7 +9,7 @@ class Pages_model extends CI_Model{
         parent::__construct();
     }
 
-    public function get($table = NULL, $data = NULL, $single = FALSE, $count = FALSE, $limit = NULL, $start = NULL, $order = NULL, $desc = FALSE)
+    public function get($table = NULL, $data = NULL, $single = FALSE, $count = FALSE, $limit = NULL, $start = NULL, $order = NULL, $desc = FALSE, $like = NULL)
     {
         $ttable = $this->table;
         if($table != NULL){
@@ -21,6 +21,14 @@ class Pages_model extends CI_Model{
         if($data != NULL)
         {
             foreach($data as $key=>$val)
+            {
+                $this->db->where($key, $val);
+            }
+        }
+        
+        if($like != NULL)
+        {
+            foreach($like as $key=>$val)
             {
                 $this->db->like($key, $val);
             }
