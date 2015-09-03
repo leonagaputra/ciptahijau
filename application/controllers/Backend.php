@@ -77,6 +77,9 @@ class Backend extends My_Controller {
             $this->data['datas']->VDESC = $this->security_decode($this->data['datas']->VDESC);            
             $this->data['page'] = 'services.php';
             $this->data['datas']->DETAILS = $this->pm->get('dtlpages',array('HDRPAGES_ID'=> '2'));
+            foreach($this->data['datas']->DETAILS as $details){
+                $details->VDESC = $this->security_decode($details->VDESC);
+            }
                 //print_r($this->data['datas']->DETAILS);exit;           
             $this->load->view('adminpage', $this->data);
         }         

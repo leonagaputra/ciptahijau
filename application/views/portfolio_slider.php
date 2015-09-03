@@ -21,16 +21,19 @@ $(function () {
                                 $thumb = "[";
                                 $lar = "[";
                                 $j = 0;
-                                foreach ($data->DETAILS as $detail){
-                                    if($j > 0){
-                                        $thumb .= ", ";
-                                        $lar .= ", ";
+                                if(is_array($data->DETAILS)){
+                                    foreach ($data->DETAILS as $detail){
+                                        if($j > 0){
+                                            $thumb .= ", ";
+                                            $lar .= ", ";
+                                        }
+                                        $thumb .= "'".$thumbnail.$detail->VTHUMBNAIL."'";
+                                        $lar .= "'".$large.$detail->VLARGE."'";
+
+                                        $j++;
                                     }
-                                    $thumb .= "'".$thumbnail.$detail->VTHUMBNAIL."'";
-                                    $lar .= "'".$large.$detail->VLARGE."'";
-                                    
-                                    $j++;
                                 }
+                                
                                 $thumb .= "]";
                                 $lar .= "]";
                                 $string .= "'thumbnail' : ".$thumb.",\r\n";
