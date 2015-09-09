@@ -5,7 +5,7 @@
             <!-- START BLOG HEADING -->
             <div class="heading">
               <h2 class="wow fadeInLeftBig"><?php echo $testimonial->VTITLE;?></h2>
-              <?php echo $testimonial->VDESC;?>
+              <p><?php echo $testimonial->VDESC;?></p>
             </div>
           </div>
           <div class=" col-lg-5 col-md-5 col-sm-6">

@@ -147,6 +147,7 @@ class Backend extends My_Controller {
         $length = $this->get_input('length');
         $status = $this->get_input('status');        
         $year = $this->get_input('year');
+        $tags = $this->get_input('tags');
         $data = array(
             'VTITLE' => $title,
             'VDESC' => $desc,
@@ -157,7 +158,8 @@ class Backend extends My_Controller {
             'VLOCATION' => $location,
             'IYEAR' => $year,
             'VLENGTH' => $length,
-            'VSTATUS' => $status
+            'VSTATUS' => $status,
+            'VTAGS' => $tags
         );
         if($itemid){
             //echo "edit";
@@ -198,8 +200,9 @@ class Backend extends My_Controller {
         $results = array();
         if($cnt->cnt > 0){
             if($datas = $this->pm->get('hdrworks', $datas, TRUE)){                
-                $results = $datas;               
-                
+                $results = $datas;                                                    
+                $results->VDESC = $this->security_decode($results->VDESC);  
+                //print_r($results);exit;
             } else {
                 $results['total'] = 0;
                 $results['rows'] = (object)array();

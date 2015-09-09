@@ -67,12 +67,12 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul id="top-menu" class="nav navbar-nav navbar-right main_nav">
                                 <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#about">About</a></li>
+                                <li><a href="#about">About Us</a></li>
                                 <li><a href="#service">Services</a></li> 
-                                <li><a href="#works">Works</a></li> 
+                                <li><a href="#works">Projects</a></li> 
                                 <li><a href="#testimonial">Testimonial</a></li> 
                                 <!--<li><a href="#team">Team</a></li>          -->
-                                <li><a href="#contact">Contacts</a></li>                           
+                                <li><a href="#contact">Contacts Us</a></li>                           
                             </ul>           
                         </div><!--/.nav-collapse -->
                     </div>     
@@ -108,8 +108,8 @@
                             <img src="<?php echo $base_url;?>img/full-slider/full-slide1.jpg" alt="img">
                             <!-- THIRD SLIDE CAPTION-->
                             <div class="slider_caption">
-                                <h2>We'll change your Idea of Design</h2>
-                                <p>We are a group of experienced designers and garden landscaper</p>
+                                <h2>Being a Market Leader and Complete Care for All The Landscape Needs</h2>
+                                <p>Delivers unparalleled quality in landscape design, construction and care. Our highly trained craftsmen will ensure that your landscape provides you with a lifetime of beauty and value.</p>
                                 <a href="#team" class="slider_btn">Our Team</a>                 
                             </div>
                         </li>
@@ -144,7 +144,7 @@
                             <!-- START ABOUT HEADING -->
                             <div class="heading">
                                 <h2 class="wow fadeInLeftBig"><?php echo $about_us->VTITLE; ?></h2>
-                                <?php echo $about_us->VDESC; ?>
+                                <p><?php echo $about_us->VDESC; ?></p>
                             </div>
 
                             <!-- START ABOUT CONTENT -->
@@ -259,7 +259,7 @@
                         <!-- BEGAIN SERVICE HEADING -->
                         <div class="heading">
                             <h2 class="wow fadeInLeftBig"><?php echo $services->VTITLE; ?></h2>
-                            <?php echo $services->VDESC; ?>
+                            <p><?php echo $services->VDESC; ?></p>
                         </div>
                     </div>          
                 </div>
@@ -334,7 +334,7 @@
                             <div class="container">
                                 <div class="heading">
                                     <h2 class="wow fadeInLeftBig"><?php echo $projects->VTITLE; ?></h2>
-                                    <?php echo $projects->VDESC; ?>
+                                    <p><?php echo $projects->VDESC; ?></p>
                                 </div>
                             </div>
                         </div>

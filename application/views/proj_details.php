@@ -123,8 +123,8 @@
                                     <input name="status" id="status" class="form-control" maxlength="45"  >
                                 </div>
                                 <div class="form-group">
-                                    <label>Status</label>
-                                    <input name="tags" id="tags" class="form-control" maxlength="45"  >
+                                    <label>Tags</label>
+                                    <input name="tags" id="tags" class="form-control" maxlength="45" placeholder="All,Design,Design & Build,Maintenance,Overseas Works" >
                                 </div>
 
                                 <button type="button" id="add_new_button" class="btn btn-default" onclick="enable_form_add()" disabled="">Add New </button>
