@@ -31,6 +31,7 @@ class Javascript extends My_Controller {
         if($this->data['datas'] = $this->pm->get('hdrworks')){
             foreach($this->data['datas'] as $data){
                 //print_r($data);exit;
+                $data->VDESC = $this->security_decode($data->VDESC);
                 $data->DETAILS = $this->pm->get('dtlworks',array('HDRWORKS_ID'=> $data->HDRWORKS_ID));
             }                       
         }   
