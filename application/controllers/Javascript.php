@@ -28,7 +28,7 @@ class Javascript extends My_Controller {
         $this->data['thumbnail'] = $this->data['base_url']."img/portfolio/small/";
         $this->data['large'] = $this->data['base_url']."img/portfolio/large/";
         $this->data['separator'] = "--|||--";
-        if($this->data['datas'] = $this->pm->get('hdrworks')){
+        if($this->data['datas'] = $this->pm->get('hdrworks', NULL, FALSE, FALSE, 100, 0, "HDRWORKS_ID")){
             foreach($this->data['datas'] as $data){
                 //print_r($data);exit;
                 $data->VDESC = $this->security_decode($data->VDESC);
